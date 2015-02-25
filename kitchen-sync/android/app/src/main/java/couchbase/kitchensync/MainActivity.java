@@ -74,6 +74,7 @@ public class MainActivity extends Activity implements Replication.ChangeListener
             addItemEditText = (EditText)findViewById(R.id.newItemText);
             addItemEditText.setOnKeyListener(this);
             addItemEditText.requestFocus();
+
             //Couchbase initialization code goes here - See steps 4, 6, 9, and 16.
             //Step 4 - Start Couchbase Lite
 
@@ -81,35 +82,11 @@ public class MainActivity extends Activity implements Replication.ChangeListener
 
             startCBLite();
 
-
-            //Step 6 - Call the 'initItemListAdapter' method
-            addItemEditText.setOnKeyListener(this);
-
-            startCBLite();
-
-            initItemListAdapter();
-
-
-            //Step 9 - Call the 'startLiveQuery' method within the 'onCreate' method
-            addItemEditText.setOnKeyListener(this);
-
-            startCBLite();
-
             initItemListAdapter();
 
             startLiveQuery();
 
-
-            //Step 15 - Call the 'startSync' method within the 'onCreate' method
-            addItemEditText.setOnKeyListener(this);
-
-            startCBLite();
-
-            initItemListAdapter();
-
-            startLiveQuery();
-
-            startSync();
+            // startSync();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -259,7 +236,7 @@ public class MainActivity extends Activity implements Replication.ChangeListener
 
         URL syncUrl;
         try {
-            syncUrl = new URL(SYNC_URL);
+            syncUrl = new URL("");
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
